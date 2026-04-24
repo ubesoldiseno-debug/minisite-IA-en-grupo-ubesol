@@ -38,6 +38,7 @@
       left:0;
       width:100%;
       height:100vh;
+      overflow:hidden;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -47,7 +48,27 @@
         radial-gradient(circle at 80% 70%, rgba(5,150,105,.16), transparent 45%),
         var(--bg);
       color:#fff;
-      z-index: 1; /* Fondo estático */
+      z-index: 1;
+    }
+
+    .hero-modern::after{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border-radius:28px;
+      padding:1px;
+      background:linear-gradient(135deg,
+        rgba(255,255,255,.34) 0%,
+        rgba(226,232,240,.18) 18%,
+        rgba(148,163,184,.10) 42%,
+        rgba(15,23,42,.08) 72%,
+        rgba(15,23,42,0) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events:none;
+      z-index:2;
+      opacity:.95;
     }
 
     /* Canvas de partículas */
@@ -57,15 +78,30 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; /* Deja pasar los clics */
+      pointer-events: none;
       z-index: 1;
     }
 
     .hero-content{
-      max-width:900px; 
-      position:relative; 
-      z-index: 2; /* Por encima de las partículas */
+      max-width:920px;
+      position:relative;
+      z-index:3;
       padding: 0 20px;
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 16px;
+      margin-bottom:24px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#e2e8f0;
+      font-weight:800;
+      font-size:.92rem;
+      backdrop-filter: blur(10px);
     }
 
     .hero-modern h1{
@@ -77,25 +113,87 @@
     }
 
     .hero-sub{
-      margin:28px auto;
-      max-width:680px;
+      margin:28px auto 0;
+      max-width:720px;
       font-size:1.25rem;
       color:var(--muted2);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .hero-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-width:180px;
+      padding:12px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      transition:transform .25s ease, background-color .25s ease, border-color .25s ease;
+    }
+
+    .hero-btn.primary{
+      background:var(--green);
+      color:#fff;
+      border:1px solid var(--green);
+      box-shadow: var(--neon);
+    }
+
+    .hero-btn.primary:hover{
+      transform:translateY(-2px);
+      background:#0b1220;
+      border-color:#0b1220;
+    }
+
+    .hero-btn.secondary{
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+    }
+
+    .hero-btn.secondary:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.24);
+    }
+
+    .hero-scroll{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:26px;
+      color:#e2e8f0;
+      text-decoration:none;
+      font-weight:700;
+      opacity:.9;
     }
 
     /* ===== CONTENEDOR PRINCIPAL QUE DESLIZA POR ENCIMA ===== */
     .content-wrapper {
       position: relative;
-      z-index: 3; /* Pasa por encima del hero */
-      margin-top: 100vh; /* Empieza justo debajo de la pantalla inicial */
+      z-index: 3;
+      margin-top: 100vh;
       background: #fff;
-      box-shadow: 0 -20px 50px rgba(0,0,0,0.1); 
+      box-shadow: 0 -20px 50px rgba(0,0,0,0.1);
     }
 
     /* ===== SECCIONES / TÍTULOS ===== */
     .section{
       padding:100px 0;
       background:#f8fafc;
+    }
+
+    .section-intro{
+      background:#ffffff;
+      border-bottom:1px solid #eef2f7;
     }
 
     .section-header{
@@ -134,33 +232,26 @@
       background:var(--card);
       padding:30px;
       border-radius:20px;
-      /* Fino perfil en verde opaco por defecto */
       border:1px solid rgba(16,185,129,0.3);
-      color: var(--bg); /* Aseguramos texto oscuro aunque el fondo de sección sea gris */
-      
-      /* Flexbox para empujar el botón al fondo si los textos tienen distinta altura */
+      color: var(--bg);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      
-      opacity: 0; 
+      opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
                   transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
                   box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
-    /* Estado cuando entran en pantalla */
     .card.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Hover: Animación Neon + Ensalzado + Sombra estructural */
     .card.is-visible:hover{
       transform:translateY(-6px);
       border-color: var(--green);
-      /* Combinamos el glow verde del neón con la sombra de profundidad */
       box-shadow: var(--neon), var(--shadow);
     }
 
@@ -172,11 +263,10 @@
 
     .card p{
       color:var(--muted);
-      margin:14px 0 24px; /* Un poco más de margen inferior para separar el botón */
-      flex-grow: 1; /* Permite que el texto ocupe el espacio y el botón quede siempre alineado abajo */
+      margin:14px 0 24px;
+      flex-grow: 1;
     }
 
-    /* ===== BOTONES (Pastillas verdes cantos romos) ===== */
     .card a{
       display:inline-flex;
       gap:8px;
@@ -186,35 +276,162 @@
       color:#fff;
       background: var(--green);
       padding: 10px 24px;
-      border-radius: 999px; /* Cantos completamente romos */
+      border-radius: 999px;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    /* Hover del botón a negro */
     .card a:hover{
-      background-color: #0f172a; /* Negro azulado corporativo (o pon #000 si prefieres puro) */
+      background-color: #0f172a;
     }
 
-    /* Retrasos escalonados fijos por CSS para un efecto cascada perfecto */
-    #gpts .card:nth-child(1) { transition-delay: 0.1s; }
-    #gpts .card:nth-child(2) { transition-delay: 0.2s; }
-    #gpts .card:nth-child(3) { transition-delay: 0.3s; }
-    #gpts .card:nth-child(4) { transition-delay: 0.4s; }
-    #gpts .card:nth-child(5) { transition-delay: 0.5s; }
-    #gpts .card:nth-child(6) { transition-delay: 0.6s; }
-    #gpts .card:nth-child(7) { transition-delay: 0.7s; }
-    #gpts .card:nth-child(8) { transition-delay: 0.8s; }
-    #projects .card:nth-child(1) { transition-delay: 0.2s; }
+    /* ===== SECCION INTRO ===== */
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(16,185,129,.08);
+      color:#047857;
+      border:1px solid rgba(16,185,129,.18);
+      font-weight:800;
+      font-size:.8rem;
+      margin-bottom:14px;
+    }
+
+    .card-note{
+      width:100%;
+      margin-top:auto;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#f8fafc;
+      border:1px solid var(--border);
+      color:#475569;
+      font-size:.95rem;
+      line-height:1.55;
+    }
+
+    .compare-boxes{
+      display:grid;
+      gap:12px;
+      width:100%;
+      margin-top:auto;
+    }
+
+    .compare-item{
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+      color:#475569;
+      font-size:.95rem;
+      line-height:1.55;
+    }
+
+    .compare-item strong{
+      display:block;
+      color:#0f172a;
+      margin-bottom:6px;
+      font-size:1rem;
+    }
+
+    .tips-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+
+    .tips-list li + li{
+      margin-top:8px;
+    }
+
+    /* ===== DICCIONARIO IA ===== */
+    .section-glossary{
+      background:#f8fafc;
+      border-top:1px solid #eef2f7;
+    }
+
+    .glossary-group + .glossary-group{
+      margin-top:54px;
+    }
+
+    .glossary-header{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
+    }
+
+    .glossary-title{
+      margin:0;
+      font-size:1.35rem;
+      font-weight:900;
+      letter-spacing:-.02em;
+      color:#0f172a;
+    }
+
+    .glossary-grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .glossary-card{
+      padding:22px 24px;
+      display:grid;
+      grid-template-columns:190px 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .glossary-card .term{
+      margin:0;
+      font-size:1.05rem;
+      font-weight:900;
+      color:#0f172a;
+      line-height:1.35;
+    }
+
+    .glossary-card .desc{
+      margin:0;
+      color:var(--muted);
+      font-size:.98rem;
+      line-height:1.65;
+    }
+
+    @media(min-width:1100px){
+      .glossary-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media(min-width:768px){
+      #intro .span-2{grid-column:span 2;}
+    }
+
+    /* Retrasos escalonados */
+    #intro .card:nth-child(1) { transition-delay: 0.10s; }
+    #intro .card:nth-child(2) { transition-delay: 0.20s; }
+    #intro .card:nth-child(3) { transition-delay: 0.30s; }
+    #intro .card:nth-child(4) { transition-delay: 0.40s; }
+    #intro .card:nth-child(5) { transition-delay: 0.50s; }
+    #gpts .card:nth-child(1) { transition-delay: 0.10s; }
+    #gpts .card:nth-child(2) { transition-delay: 0.20s; }
+    #gpts .card:nth-child(3) { transition-delay: 0.30s; }
+    #gpts .card:nth-child(4) { transition-delay: 0.40s; }
+    #gpts .card:nth-child(5) { transition-delay: 0.50s; }
+    #gpts .card:nth-child(6) { transition-delay: 0.60s; }
+    #gpts .card:nth-child(7) { transition-delay: 0.70s; }
+    #gpts .card:nth-child(8) { transition-delay: 0.80s; }
+    #projects .card:nth-child(1) { transition-delay: 0.20s; }
 
     /* ===== PROJECTS (Fondo oscuro) ===== */
     .section-dark{
       padding:90px 0;
-      background: #1e293b; /* Gris oscuro elegante */
+      background: #1e293b;
       border-top:1px solid #334155;
       border-bottom:1px solid #334155;
     }
 
-    /* Forzamos a que el texto de cabecera de esta sección sea blanco para que se lea sobre el gris */
     .section-dark .section-header h2,
     .section-dark .section-header p {
       color: #f8fafc;
@@ -265,6 +482,14 @@
       font-weight:700;
       color:var(--green2);
     }
+
+    @media(max-width:767px){
+      .hero-modern{height:100svh;}
+      .content-wrapper{margin-top:100svh;}
+      .hero-actions{flex-direction:column; align-items:center;}
+      .hero-btn{width:100%; max-width:280px;}
+      .glossary-card{grid-template-columns:1fr; gap:10px;}
+    }
   </style>
 </head>
 
@@ -273,12 +498,156 @@
   <section class="hero-modern" id="hero">
     <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
-      <h1>Inteligencia Artificial en <span style="color: var(--green)">Grupo Ubesol</span>.</h1>
-      <p class="hero-sub">Multiplica tu productividad y mejora decisiones con estas herramientas.</p>
+      <span class="hero-kicker">Guía rápida + herramientas internas</span>
+      <h1>Inteligencia Artificial en <span style="color: var(--green)">Grupo Ubesol</span></h1>
+      <p class="hero-sub">Multiplica tu productividad, entiende lo esencial de ChatGPT y accede a herramientas listas para usar.</p>
+      <div class="hero-actions">
+        <a class="hero-btn primary" href="#intro">Empezar guía</a>
+        <a class="hero-btn secondary" href="#gpts">Ver GPTs</a>
+      </div>
+      <a class="hero-scroll" href="#intro">Baja para ver la guía rápida</a>
     </div>
   </section>
 
   <div class="content-wrapper">
+
+    <section class="section section-intro" id="intro">
+      <div class="container">
+        <div class="section-header">
+          <h2>Guía rápida para empezar con IA</h2>
+          <p>Conceptos breves y útiles para que cualquier persona entienda ChatGPT antes de usar las herramientas.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <span class="eyebrow">Concepto base</span>
+            <h3>¿Qué es la IA?</h3>
+            <p>La IA es tecnología capaz de aprender patrones, razonar sobre información y ayudarte a resolver tareas. En la práctica, sirve para redactar, resumir, analizar, clasificar, idear y automatizar trabajo repetitivo.</p>
+            <div class="card-note"><strong>Idea rápida:</strong> no sustituye tu criterio. Lo acelera cuando le das buen contexto.</div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">Herramienta</span>
+            <h3>¿Qué es ChatGPT?</h3>
+            <p>ChatGPT es un asistente conversacional de OpenAI basado en un LLM, es decir, un modelo de lenguaje de gran tamaño, como Gemini de Google o Claude de Anthropic. Le escribes una petición y te devuelve una respuesta útil en lenguaje natural para pensar, escribir, resumir, revisar o generar primeras versiones.</p>
+            <div class="card-note"><strong>Úsalo para:</strong> ganar velocidad, ordenar ideas y reducir tiempo en tareas de bajo valor repetitivo.</div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">Clave de uso</span>
+            <h3>¿Qué es un prompt?</h3>
+            <p>Un prompt es la instrucción que le das a ChatGPT. Cuanto más claro seas con el objetivo, el contexto, el tono y el formato, mejor será la respuesta.</p>
+            <div class="card-note"><strong>Ejemplo:</strong> “Resume esta reunión en 5 puntos, indica riesgos y cierra con 3 acciones prioritarias.”</div>
+          </div>
+
+          <div class="card span-2">
+            <span class="eyebrow">Diferencia importante</span>
+            <h3>GPT vs Project en ChatGPT</h3>
+            <p>Ambos sirven para trabajar mejor, pero no son lo mismo. Uno está pensado como asistente especializado; el otro, como espacio de trabajo con contexto.</p>
+            <div class="compare-boxes">
+              <div class="compare-item">
+                <strong>GPT</strong>
+                Es una versión personalizada de ChatGPT para una tarea concreta. Ideal cuando quieres una herramienta ya preparada para usarla una y otra vez.
+              </div>
+              <div class="compare-item">
+                <strong>Project</strong>
+                Es un espacio donde agrupas conversaciones, archivos e instrucciones del mismo tema. Ideal para trabajos continuos, seguimiento y contexto acumulado.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="eyebrow">Consejos rápidos</span>
+            <h3>Cómo sacarle partido</h3>
+            <ul class="tips-list">
+              <li>Sé específico con lo que quieres conseguir.</li>
+              <li>Da contexto antes de pedir una respuesta.</li>
+              <li>Pide formato: lista, tabla, email o resumen.</li>
+              <li>Itera: una segunda versión casi siempre mejora la primera.</li>
+              <li>Verifica siempre datos sensibles o críticos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-glossary" id="diccionario">
+      <div class="container">
+        <div class="section-header">
+          <h2>Diccionario básico de términos de IA</h2>
+          <p>Un glosario claro para familiarizarse con los conceptos más habituales de inteligencia artificial y ChatGPT.</p>
+        </div>
+
+        <div class="glossary-group">
+          <div class="glossary-header">
+            <span class="eyebrow">Conceptos esenciales</span>
+            <h3 class="glossary-title">Lo mínimo que conviene conocer</h3>
+          </div>
+          <div class="glossary-grid">
+            <div class="card glossary-card"><p class="term">IA</p><p class="desc">Tecnología que permite a las máquinas realizar tareas que normalmente asociamos con la inteligencia humana.</p></div>
+            <div class="card glossary-card"><p class="term">IA generativa</p><p class="desc">Tipo de IA capaz de crear contenido nuevo, como texto, imágenes, audio o código.</p></div>
+            <div class="card glossary-card"><p class="term">Modelo</p><p class="desc">El motor de IA que procesa una petición y genera una respuesta.</p></div>
+            <div class="card glossary-card"><p class="term">LLM</p><p class="desc">Siglas de modelo de lenguaje de gran tamaño. Es la base de herramientas como ChatGPT, Gemini o Claude.</p></div>
+            <div class="card glossary-card"><p class="term">ChatGPT</p><p class="desc">Asistente conversacional basado en un LLM, pensado para escribir, analizar, resumir, idear o resolver tareas.</p></div>
+            <div class="card glossary-card"><p class="term">GPT</p><p class="desc">Puede referirse al modelo de lenguaje en sí o, dentro de ChatGPT, a un asistente personalizado para una función concreta.</p></div>
+            <div class="card glossary-card"><p class="term">GPT personalizado</p><p class="desc">Versión configurada para hacer una tarea específica, con instrucciones, tono y comportamiento definidos.</p></div>
+            <div class="card glossary-card"><p class="term">Proyecto</p><p class="desc">Espacio de trabajo dentro de ChatGPT donde agrupas chats, archivos e instrucciones para mantener contexto.</p></div>
+            <div class="card glossary-card"><p class="term">Prompt</p><p class="desc">Instrucción, pregunta o petición que escribes para que la IA te responda.</p></div>
+            <div class="card glossary-card"><p class="term">Contexto</p><p class="desc">Información adicional que das al modelo para que entienda mejor lo que necesitas.</p></div>
+            <div class="card glossary-card"><p class="term">Chat</p><p class="desc">Conversación concreta que mantienes con la IA dentro de una herramienta como ChatGPT.</p></div>
+            <div class="card glossary-card"><p class="term">Multimodal</p><p class="desc">Sistema que puede trabajar con varios tipos de entrada o salida, como texto, imagen, audio o documentos.</p></div>
+            <div class="card glossary-card"><p class="term">Token</p><p class="desc">Pequeña unidad de texto que usa el modelo para leer, interpretar y generar contenido.</p></div>
+            <div class="card glossary-card"><p class="term">Ventana de contexto</p><p class="desc">Cantidad de información que el modelo puede tener en cuenta al mismo tiempo dentro de una conversación.</p></div>
+            <div class="card glossary-card"><p class="term">Memoria</p><p class="desc">Capacidad de una herramienta para recordar información útil entre interacciones, según la configuración disponible.</p></div>
+          </div>
+        </div>
+
+        <div class="glossary-group">
+          <div class="glossary-header">
+            <span class="eyebrow">Uso práctico</span>
+            <h3 class="glossary-title">Términos que verás al trabajar con prompts</h3>
+          </div>
+          <div class="glossary-grid">
+            <div class="card glossary-card"><p class="term">Rol</p><p class="desc">Papel que le asignas a la IA en un prompt, por ejemplo analista, redactor o experto en marketing.</p></div>
+            <div class="card glossary-card"><p class="term">Formato de salida</p><p class="desc">Manera en la que quieres recibir la respuesta, por ejemplo lista, tabla, email, resumen o pasos.</p></div>
+            <div class="card glossary-card"><p class="term">Ejemplo</p><p class="desc">Muestra que das a la IA para que entienda mejor el estilo o resultado que buscas.</p></div>
+            <div class="card glossary-card"><p class="term">Iterar</p><p class="desc">Mejorar el resultado en varias rondas, ajustando el prompt o afinando la respuesta.</p></div>
+            <div class="card glossary-card"><p class="term">Automatización</p><p class="desc">Uso de IA para hacer tareas repetitivas con menos intervención manual.</p></div>
+            <div class="card glossary-card"><p class="term">Agente</p><p class="desc">Sistema de IA que no solo responde, sino que también puede ejecutar pasos, buscar información o usar herramientas para lograr un objetivo.</p></div>
+            <div class="card glossary-card"><p class="term">Flujo de trabajo</p><p class="desc">Secuencia de pasos para completar una tarea de forma ordenada, repetible y más eficiente.</p></div>
+            <div class="card glossary-card"><p class="term">Resumen</p><p class="desc">Versión reducida de un contenido, manteniendo las ideas clave y lo importante.</p></div>
+            <div class="card glossary-card"><p class="term">Extracción de información</p><p class="desc">Proceso de sacar datos concretos de un texto, PDF, tabla o documento.</p></div>
+            <div class="card glossary-card"><p class="term">Clasificación</p><p class="desc">Acción de ordenar o etiquetar información según categorías o criterios definidos.</p></div>
+            <div class="card glossary-card"><p class="term">Transcripción</p><p class="desc">Conversión de audio o vídeo en texto para poder revisarlo, resumirlo o reutilizarlo.</p></div>
+            <div class="card glossary-card"><p class="term">OCR</p><p class="desc">Tecnología que detecta y extrae el texto que aparece dentro de imágenes o documentos escaneados.</p></div>
+          </div>
+        </div>
+
+        <div class="glossary-group">
+          <div class="glossary-header">
+            <span class="eyebrow">Calidad y nivel medio</span>
+            <h3 class="glossary-title">Conceptos para usar la IA con más criterio</h3>
+          </div>
+          <div class="glossary-grid">
+            <div class="card glossary-card"><p class="term">Alucinación</p><p class="desc">Respuesta inventada o incorrecta que la IA presenta como si fuera cierta.</p></div>
+            <div class="card glossary-card"><p class="term">Sesgo</p><p class="desc">Tendencia del sistema a responder con ciertas inclinaciones o errores por los datos con los que fue entrenado.</p></div>
+            <div class="card glossary-card"><p class="term">Validación</p><p class="desc">Revisión humana para comprobar que una respuesta es correcta antes de usarla.</p></div>
+            <div class="card glossary-card"><p class="term">Fuente</p><p class="desc">Documento, web o referencia en la que se apoya una afirmación o un dato.</p></div>
+            <div class="card glossary-card"><p class="term">Cita</p><p class="desc">Mención explícita de la fuente de donde sale una idea, un dato o una afirmación.</p></div>
+            <div class="card glossary-card"><p class="term">Dataset</p><p class="desc">Conjunto de datos usado para entrenar, probar o evaluar un modelo.</p></div>
+            <div class="card glossary-card"><p class="term">Entrenamiento</p><p class="desc">Fase en la que el modelo aprende patrones a partir de grandes cantidades de datos.</p></div>
+            <div class="card glossary-card"><p class="term">Inferencia</p><p class="desc">Momento en el que el modelo ya entrenado genera una respuesta a tu prompt.</p></div>
+            <div class="card glossary-card"><p class="term">Fine-tuning</p><p class="desc">Ajuste adicional de un modelo con ejemplos específicos para orientarlo mejor a una tarea concreta.</p></div>
+            <div class="card glossary-card"><p class="term">RAG</p><p class="desc">Técnica que combina un modelo con documentos o fuentes externas para responder con más contexto y precisión.</p></div>
+            <div class="card glossary-card"><p class="term">Embedding</p><p class="desc">Representación numérica de un texto que permite comparar significado o similitud.</p></div>
+            <div class="card glossary-card"><p class="term">Base vectorial</p><p class="desc">Sistema que guarda embeddings para localizar información parecida de forma rápida.</p></div>
+            <div class="card glossary-card"><p class="term">Temperatura</p><p class="desc">Ajuste técnico que influye en si una respuesta sale más creativa o más predecible.</p></div>
+            <div class="card glossary-card"><p class="term">Precisión</p><p class="desc">Grado en que una respuesta se ajusta a lo que pediste y a la realidad.</p></div>
+            <div class="card glossary-card"><p class="term">Prompt engineering</p><p class="desc">Forma de diseñar mejor las instrucciones para obtener resultados más útiles, claros y consistentes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
     
     <section class="section" id="gpts">
       <div class="container">
@@ -302,7 +671,7 @@
 
           <div class="card">
             <h3>Resúmenes Pro</h3>
-            <p>Convierte los resumenes de tus reuniones en Teams, en resúmenes estructurados, accionables y listos para compartir.</p>
+            <p>Convierte los resúmenes de tus reuniones en Teams en resúmenes estructurados, accionables y listos para compartir.</p>
             <a href="https://chatgpt.com/g/g-69b14c0564008191af97fdd73a3730f4-resumenes-pro" target="_blank" rel="noopener">Abrir GPT →</a>
           </div>
 
@@ -314,7 +683,7 @@
 
           <div class="card">
             <h3>Detecta Dolores de Compra</h3>
-            <p>Analiza conversaciones, documentos, comentarios o peticiones; para detectar fricciones en la decisión de compra del Jefe.</p>
+            <p>Analiza conversaciones, documentos, comentarios o peticiones para detectar fricciones en la decisión de compra del Jefe.</p>
             <a href="https://chatgpt.com/g/g-68bac536c0848191a288f656f1ebc69a-detecta-dolores-de-compra" target="_blank" rel="noopener">Abrir GPT →</a>
           </div>
 
@@ -331,7 +700,6 @@
           </div>
 
           <div class="card">
-            <!-- Actualizado: card para el procedimiento de desarrollo de producto -->
             <h3>Procedimiento Desarrollo de Producto</h3>
             <p>Consulta tus dudas o pide explicaciones con respecto al nuevo procedimiento de desarrollo de producto en Grupo Ubesol.</p>
             <a href="https://chatgpt.com/g/g-69dcc8e2752881919a0abfcee773b17c-procedimiento-desarrollo-de-producto" target="_blank" rel="noopener">Abrir GPT →</a>
@@ -363,7 +731,7 @@
         <h2>¿Necesitas ayuda?</h2>
         <p>
           Si tienes alguna necesidad más concreta, quieres optimizar un proceso o simplemente tienes preguntas,
-          envía un email a disseny@grupoubesol.es.
+          envía un email a <a href="mailto:disseny@grupoubesol.es">disseny@grupoubesol.es</a>.
         </p>
       </div>
     </section>
@@ -394,7 +762,7 @@
       let mouse = {
         x: null,
         y: null,
-        radius: 180 // Radio de atracción
+        radius: 180
       };
 
       window.addEventListener('mousemove', function(e) {
@@ -427,18 +795,15 @@
           this.x += this.speedX;
           this.y += this.speedY;
 
-          // Rebote en los bordes
           if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
           if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
 
-          // Atracción hacia el ratón
           if (mouse.x != null && mouse.y != null) {
             let dx = mouse.x - this.x;
             let dy = mouse.y - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
             
             if (distance < mouse.radius) {
-              // Movimiento suave hacia el cursor
               this.x += dx * 0.015;
               this.y += dy * 0.015;
             }
@@ -446,7 +811,7 @@
         }
 
         draw() {
-          ctx.fillStyle = 'rgba(255, 255, 255, 1)'; // Blanco puro
+          ctx.fillStyle = 'rgba(255, 255, 255, 1)';
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fill();
@@ -455,7 +820,6 @@
 
       function initParticles() {
         particlesArray = [];
-        // Densidad calculada según tamaño de pantalla
         let numberOfParticles = (canvas.width * canvas.height) / 8000;
         for (let i = 0; i < numberOfParticles; i++) {
           particlesArray.push(new Particle());
@@ -466,7 +830,6 @@
       function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Optimización: Solo animamos si estamos viendo el hero
         if (window.scrollY < window.innerHeight) {
           for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
