@@ -214,6 +214,186 @@ const products = [
     typeLabel: 'Monocromo',
     note: 'Verde profundo, información mínima y espaciado generoso.',
     source: 'https://bluemercury.com/products/homecourt-cece-hand-wash-1'
+  },
+  {
+    brand: 'Soeder',
+    name: 'Orange Grove Hand Soap',
+    image: 'assets/products/25-soeder.jpg',
+    type: 'botica',
+    typeLabel: 'Botica',
+    note: 'Vidrio ámbar, marcaje blanco directo y grandes áreas sin información.',
+    source: 'https://www.soeder.ch/en/products/natural-soap-orange-grove'
+  },
+  {
+    brand: 'F. Miller',
+    name: 'Hand & Body Wash',
+    image: 'assets/products/26-f-miller.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Botella transparente y un único gesto tipográfico vertical sobre el líquido.',
+    source: 'https://fmillerskincare.com/products/hand-body-wash'
+  },
+  {
+    brand: 'Dally',
+    name: 'Barefoot in the Grass',
+    image: 'assets/products/27-dally.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Palabras dispersas como micrografismos y mucho blanco alrededor del nombre.',
+    source: 'https://dallygoods.com/products/barefoot-in-the-grass'
+  },
+  {
+    brand: 'BAINA',
+    name: 'Ebon Veil Hand Wash',
+    image: 'assets/products/28-baina.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Aluminio cepillado y una jerarquía crema impresa directamente, sin etiqueta añadida.',
+    source: 'https://www.shopbaina.com/en-us/products/hand-wash-ebon-veil-2021'
+  },
+  {
+    brand: 'Skandinavisk',
+    name: 'SKOG Wash',
+    image: 'assets/products/29-skandinavisk.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Verde bosque y una retícula de pequeños símbolos nórdicos casi tonal.',
+    source: 'https://www.skandinavisk.com/en-se/skog-wash-500ml.html'
+  },
+  {
+    brand: 'LEIF',
+    name: 'Buddha Wood Hand Wash',
+    image: 'assets/products/30-leif.jpg',
+    type: 'clasico',
+    typeLabel: 'Clásico',
+    note: 'Un solo medallón circular concentra toda la información sobre vidrio ámbar.',
+    source: 'https://leifproducts.com/products/buddha-wood-hand-wash'
+  },
+  {
+    brand: 'RAAW Alchemy',
+    name: 'No Vacancy Soap',
+    image: 'assets/products/31-raaw-alchemy.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Vidrio verde oliva y una palmera dorada mínima como única ilustración.',
+    source: 'https://raawalchemy.com/products/no-vacancy-soap'
+  },
+  {
+    brand: 'Kinfill',
+    name: 'The Hand Wash',
+    image: 'assets/products/32-kinfill.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Volumen marfil reutilizable, microtexto vertical y marca desplazada al zócalo.',
+    source: 'https://kinfill.com/en-uk/products/kinfill-hand-wash'
+  },
+  {
+    brand: 'Colekt',
+    name: 'Repeat Red Algae',
+    image: 'assets/products/33-colekt.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Descriptor mínimo arriba y un único trazo gestual como firma de la botella.',
+    source: 'https://us.colekt.com/all-products'
+  },
+  {
+    brand: 'KIHO New York',
+    name: 'Hinoki Bergamot',
+    image: 'assets/products/34-kiho.jpg',
+    type: 'botica',
+    typeLabel: 'Botica',
+    note: 'Etiqueta blanca estrecha, centrada y editada en apenas cuatro niveles de texto.',
+    source: 'https://kihonewyork.com/products/hinoki-bergamot-hand-wash'
+  },
+  {
+    brand: 'Björk & Berries',
+    name: 'September Hand & Body Wash',
+    image: 'assets/products/35-bjork-berries.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Vidrio verde humo con marca y función impresas en tres líneas diminutas.',
+    source: 'https://us.bjorkandberries.com/products/september-hand-body-wash-400ml'
+  },
+  {
+    brand: 'OUAI',
+    name: 'Dean Street Hand Wash',
+    image: 'assets/products/36-ouai.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Marfil translúcido y tipografía negra directa, aislada por amplios silencios.',
+    source: 'https://theouai.com/products/hand-wash'
+  },
+  {
+    brand: 'Dior',
+    name: 'Gris Dior Liquid Soap',
+    image: 'assets/products/37-gris-dior.jpg',
+    type: 'clasico',
+    typeLabel: 'Clásico',
+    note: 'Líquido rosa pálido y una placa couture pequeña enmarcada en negro.',
+    source: 'https://www.dior.com/en_int/beauty/products/gris-dior-liquid-soap-Y0996465.html'
+  },
+  {
+    brand: 'Hetkinen',
+    name: 'Wabi-Sabi Hand Wash',
+    image: 'assets/products/38-hetkinen.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Papel texturado, cinco datos muy separados y una composición de calma nórdica.',
+    source: 'https://www.hetkinen.com/products/wabi-sabi-hand-wash'
+  },
+  {
+    brand: 'Matiere Premiere',
+    name: 'Neroli Oranger',
+    image: 'assets/products/39-matiere-premiere.jpg',
+    type: 'monocromo',
+    typeLabel: 'Monocromo',
+    note: 'Bloque blanco compacto sobre vidrio humo; tres niveles y ningún ornamento.',
+    source: 'https://matiere-premiere.com/en/products/neroli-oranger-1'
+  },
+  {
+    brand: 'MiN New York',
+    name: 'Momento Hand Wash',
+    image: 'assets/products/40-min-new-york.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Negro mate y una etiqueta baja, casi una banda editorial con un solo acento rojo.',
+    source: 'https://min.com/int/product/momento-hand-wash/'
+  },
+  {
+    brand: 'Archipelago',
+    name: 'Botanico de Havana',
+    image: 'assets/products/41-archipelago.jpg',
+    type: 'botica',
+    typeLabel: 'Botica',
+    note: 'Vidrio ámbar sin etiqueta: un marcaje crema pequeño flota directamente en el centro.',
+    source: 'https://shoparchipelago.com/products/botanico-de-havana-hand-wash'
+  },
+  {
+    brand: 'Acqua di Parma',
+    name: 'Colonia Hand Wash',
+    image: 'assets/products/42-acqua-di-parma.jpg',
+    type: 'clasico',
+    typeLabel: 'Clásico',
+    note: 'El nombre y el escudo aparecen en bajorrelieve: identidad integrada en el propio vidrio.',
+    source: 'https://www.acquadiparma.com/en/gb/colonia/COLONIAHANDWASH.html'
+  },
+  {
+    brand: 'Noble Isle',
+    name: 'The Greenhouse',
+    image: 'assets/products/43-noble-isle.jpg',
+    type: 'grafico',
+    typeLabel: 'Gráfico',
+    note: 'Un tiesto botánico diminuto corona un marcaje verde impreso sin soporte.',
+    source: 'https://www.nobleisle.com/product/the-greenhouse-luxury-hand-wash/'
+  },
+  {
+    brand: 'Yves Saint Laurent',
+    name: 'Tuxedo Hand & Body Wash',
+    image: 'assets/products/44-ysl-tuxedo.jpg',
+    type: 'clasico',
+    typeLabel: 'Clásico',
+    note: 'Una pequeña placa negra texturada concentra la firma sobre vidrio color coñac.',
+    source: 'https://www.yslbeauty.com/int/fragrance/tuxedo-hand-and-body-wash/WW-51397YSL.html'
   }
 ];
 
@@ -227,8 +407,13 @@ const viewerTitle = document.getElementById('viewer-title');
 const viewerNote = document.getElementById('viewer-note');
 const viewerSource = document.getElementById('viewer-source');
 const closeButton = document.getElementById('viewer-close');
+const viewerImageWrap = document.getElementById('viewer-image-wrap');
+const viewerZoomHint = document.getElementById('viewer-zoom-hint');
 let visibleProducts = [...products];
 let activeIndex = 0;
+let isViewerZoomed = false;
+let dragState = null;
+let didDrag = false;
 
 function productCard(product, index) {
   const number = String(index + 1).padStart(2, '0');
@@ -260,6 +445,7 @@ function render(filter = 'all') {
 }
 
 function updateViewer() {
+  resetViewerZoom();
   const product = visibleProducts[activeIndex];
   const absoluteIndex = products.indexOf(product) + 1;
   viewerImage.src = product.image;
@@ -271,6 +457,54 @@ function updateViewer() {
   viewerSource.href = product.source;
 }
 
+function resetViewerZoom() {
+  isViewerZoomed = false;
+  dragState = null;
+  didDrag = false;
+  viewerImageWrap.classList.remove('is-zoomed', 'is-dragging');
+  viewerImage.style.width = '';
+  viewerImage.style.height = '';
+  viewerImageWrap.scrollLeft = 0;
+  viewerImageWrap.scrollTop = 0;
+  viewerImage.setAttribute('aria-label', 'Ampliar imagen al doble');
+  viewerImage.setAttribute('aria-pressed', 'false');
+  viewerZoomHint.textContent = 'Clic para zoom ×2';
+}
+
+function setViewerZoom(zoomed, originEvent) {
+  if (!zoomed) {
+    resetViewerZoom();
+    return;
+  }
+
+  const wrapRect = viewerImageWrap.getBoundingClientRect();
+  const imageRect = viewerImage.getBoundingClientRect();
+  const originX = originEvent ? Math.min(1, Math.max(0, (originEvent.clientX - imageRect.left) / imageRect.width)) : 0.5;
+  const originY = originEvent ? Math.min(1, Math.max(0, (originEvent.clientY - imageRect.top) / imageRect.height)) : 0.5;
+  const zoomWidth = Math.max(imageRect.width * 2.2, wrapRect.width * 1.35);
+
+  isViewerZoomed = true;
+  viewerImageWrap.classList.add('is-zoomed');
+  viewerImage.style.width = `${zoomWidth}px`;
+  viewerImage.style.height = 'auto';
+  viewerImage.setAttribute('aria-label', 'Reducir imagen y volver a centrar');
+  viewerImage.setAttribute('aria-pressed', 'true');
+  viewerZoomHint.textContent = 'Arrastra o desplázate · clic para reducir';
+
+  requestAnimationFrame(() => {
+    viewerImageWrap.scrollLeft = viewerImage.scrollWidth * originX - viewerImageWrap.clientWidth / 2;
+    viewerImageWrap.scrollTop = viewerImage.scrollHeight * originY - viewerImageWrap.clientHeight / 2;
+  });
+}
+
+function toggleViewerZoom(event) {
+  if (didDrag) {
+    didDrag = false;
+    return;
+  }
+  setViewerZoom(!isViewerZoomed, event);
+}
+
 function openViewer() {
   updateViewer();
   viewer.showModal();
@@ -278,6 +512,7 @@ function openViewer() {
 }
 
 function closeViewer() {
+  resetViewerZoom();
   viewer.close();
   document.body.style.overflow = '';
 }
@@ -302,11 +537,59 @@ closeButton.addEventListener('click', closeViewer);
 document.getElementById('viewer-prev').addEventListener('click', () => moveViewer(-1));
 document.getElementById('viewer-next').addEventListener('click', () => moveViewer(1));
 
+viewerImage.addEventListener('click', toggleViewerZoom);
+viewerImage.addEventListener('keydown', event => {
+  if (event.key !== 'Enter' && event.key !== ' ') return;
+  event.preventDefault();
+  setViewerZoom(!isViewerZoomed);
+});
+
+viewerImageWrap.addEventListener('pointerdown', event => {
+  if (!isViewerZoomed || event.button !== 0) return;
+  dragState = {
+    x: event.clientX,
+    y: event.clientY,
+    left: viewerImageWrap.scrollLeft,
+    top: viewerImageWrap.scrollTop,
+    pointerId: event.pointerId,
+    captured: false
+  };
+  didDrag = false;
+});
+
+viewerImageWrap.addEventListener('pointermove', event => {
+  if (!dragState) return;
+  const deltaX = event.clientX - dragState.x;
+  const deltaY = event.clientY - dragState.y;
+  if (Math.abs(deltaX) + Math.abs(deltaY) > 7) {
+    didDrag = true;
+    viewerImageWrap.classList.add('is-dragging');
+    if (!dragState.captured) {
+      viewerImageWrap.setPointerCapture(dragState.pointerId);
+      dragState.captured = true;
+    }
+  }
+  if (!didDrag) return;
+  viewerImageWrap.scrollLeft = dragState.left - deltaX;
+  viewerImageWrap.scrollTop = dragState.top - deltaY;
+});
+
+function stopViewerDrag(event) {
+  if (!dragState) return;
+  dragState = null;
+  viewerImageWrap.classList.remove('is-dragging');
+  if (viewerImageWrap.hasPointerCapture(event.pointerId)) viewerImageWrap.releasePointerCapture(event.pointerId);
+}
+
+viewerImageWrap.addEventListener('pointerup', stopViewerDrag);
+viewerImageWrap.addEventListener('pointercancel', stopViewerDrag);
+
 viewer.addEventListener('click', event => {
   if (event.target === viewer) closeViewer();
 });
 
 viewer.addEventListener('close', () => {
+  resetViewerZoom();
   document.body.style.overflow = '';
 });
 
