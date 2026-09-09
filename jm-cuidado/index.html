@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una selección visual de 24 jabones de manos premium con etiquetas y grafismos discretos.">
+  <title>Quiet Soap — 24 referencias premium</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Quiet Soap, volver arriba">QUIET SOAP</a>
+    <span class="edition">Selección 01 — 2026</span>
+    <a class="jump-link" href="#collection">Ver colección ↓</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-kicker">Objetos para el ritual cotidiano</div>
+      <h1 id="hero-title">Jabones premium.<br><em>Etiquetas mínimas.</em></h1>
+      <div class="hero-meta">
+        <p>24 jabones de manos de primer nivel seleccionados por su dirección de arte: etiquetas pequeñas, tipografía medida y envases que dejan hablar al material.</p>
+        <div class="hero-count" aria-label="24 referencias">
+          <strong>24</strong>
+          <span>referencias<br>internacionales</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-head">
+        <div>
+          <span class="eyebrow">Índice visual</span>
+          <h2 id="collection-title">La colección</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar por lenguaje visual">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="botica" aria-pressed="false">Botica</button>
+          <button class="filter" type="button" data-filter="monocromo" aria-pressed="false">Monocromo</button>
+          <button class="filter" type="button" data-filter="clasico" aria-pressed="false">Clásico</button>
+          <button class="filter" type="button" data-filter="grafico" aria-pressed="false">Gráfico</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>No hay referencias en esta categoría.</p>
+    </section>
+
+    <section class="notes" aria-labelledby="notes-title">
+      <span class="eyebrow">Lectura rápida</span>
+      <h2 id="notes-title">Tres señales que se repiten</h2>
+      <div class="note-grid">
+        <article>
+          <span>01</span>
+          <h3>La etiqueta no domina</h3>
+          <p>Ocupa una fracción del frontal y deja que vidrio, color y silueta construyan la presencia.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>La tipografía informa</h3>
+          <p>Jerarquías cortas, cuerpos pequeños y aire suficiente: el lujo aparece en la edición, no en el volumen.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Un gesto basta</h3>
+          <p>Una medalla, un emblema o un color inesperado puede romper la neutralidad sin saturar el envase.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Curaduría visual para JM Cuidado</span>
+    <span>Imágenes enlazadas a sus fuentes · 09.09.2026</span>
+  </footer>
+
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+    <button class="viewer-close" id="viewer-close" type="button" aria-label="Cerrar imagen">Cerrar ×</button>
+    <button class="viewer-nav viewer-prev" id="viewer-prev" type="button" aria-label="Producto anterior">←</button>
+    <figure>
+      <div class="viewer-image-wrap">
+        <img id="viewer-image" alt="">
+      </div>
+      <figcaption>
+        <span class="viewer-index" id="viewer-index"></span>
+        <div>
+          <p class="viewer-brand" id="viewer-brand"></p>
+          <h2 id="viewer-title"></h2>
+          <p class="viewer-note" id="viewer-note"></p>
+        </div>
+        <a id="viewer-source" href="#" target="_blank" rel="noreferrer">Ver fuente ↗</a>
+      </figcaption>
+    </figure>
+    <button class="viewer-nav viewer-next" id="viewer-next" type="button" aria-label="Producto siguiente">→</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
